@@ -39,7 +39,11 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 1rem;
+        gap: 0.5rem;
+    }
+
+    .plan-card div p {
+        text-align: left;
     }
 
     @media (min-width: 640px) {

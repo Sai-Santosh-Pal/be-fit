@@ -4,7 +4,7 @@
   import Dashboard from './components/pages/Dashboard.vue'
   import Workout from './components/pages/Workout.vue'
 
-const selectDisplay = 2
+const selectDisplay = 3
 </script>
 
 <template>
