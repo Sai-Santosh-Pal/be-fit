@@ -11,7 +11,7 @@ import userImage from '@/assets/user.png'
     </main>
     <footer>
         <small>Created by(Layout.vue mai hai, put github link below, put pfp)</small>
-        <a href="google.com" target="_blank">
+        <a href="sai-santosh-pal" target="_blank">
             <img alt="pfp" :src="userImage" />
             <p>Layout</p>
             <i class="fa-brands fa-github"></i>
