@@ -48,7 +48,7 @@
                 <input class="grid-weights" placeholder="14kg" type="text" />
             </div>
         </div>
-        <div class="card">
+        <div class="card workout-btns">
             <button>Save & Exit <i class="fa-solid fa-save"></i></button>
             <button>Complete <i class="fa-solid fa-check"></i></button>
         </div>
@@ -66,7 +66,8 @@
         gap: 1.5rem;
     }
 
-    .plan-card-header {
+    .plan-card-header,
+    .workout-btns {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -87,5 +88,46 @@
 
     .grid-name {
         grid-column: span 3 / span 3;   
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .grid-name button {
+        padding: 0;
+        border: none;
+        box-shadow: none;
+    }
+
+    .grid-name button:hover {
+        transform: none;
+        box-shadow: none;
+        color: var(--color-link);
+    }
+
+    .workout-grid-row .grid-name button {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .workout-grid-row:hover .grid-name button {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .grid-name p {
+        text-transform: capitalize;
+    }
+
+    .grid-weights {
+        grid-column: span 2 / span 2;
+    }
+
+    .workout-btns button {
+        flex: 1;
+    }
+
+    .workout-btns button i {
+        padding-left: 0.5rem;
     }
 </style>
