@@ -10,9 +10,9 @@
             <div class="benefits">
                 <h2>Complete this program<br/>if you want...</h2>
                 <div>
-                    <p>✅ Follow a simple program with proven results.</p>
-                    <p>✅ Get fit, healthy, strong and absolutely shredded.</p>
-                    <p>✅ Learn more about gym, training and technique.</p>
+                    <p>- Follow a simple program with proven results.</p>
+                    <p>- Get fit, healthy, strong and absolutely shredded.</p>
+                    <p>- Learn more about gym, training and technique.</p>
                 </div>
             </div>
             <div>
@@ -21,7 +21,7 @@
                 <h5><i>Push &rarr; Pull &rarr; Legs &rarr; Repeat</i></h5>
             </div>
             <div class="card challenge">
-                <h3>🔥 Your Challenge</h3>
+                <h3>Your Challenge</h3>
                 <p>Complete all the workouts and track your progress all along the way!</p>
                 <p>Do you accept?</p>
                 <button @click="() => handleChangeDisplay(2)">Begin &rarr;</button>

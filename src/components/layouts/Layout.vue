@@ -4,18 +4,13 @@ import userImage from '@/assets/user.png'
 
 <template>
     <header>
-        <h1>BE-FIT</h1>
+        <h1>BE FIT</h1>
     </header>
     <main>
         <slot />
     </main>
     <footer>
-        <small>Created by(Layout.vue mai hai, put github link below, put pfp)</small>
-        <a href="sai-santosh-pal" target="_blank">
-            <img alt="pfp" :src="userImage" />
-            <p>Layout</p>
-            <i class="fa-brands fa-github"></i>
-        </a>
+        Just Be Fit.
     </footer>
 </template>
 
