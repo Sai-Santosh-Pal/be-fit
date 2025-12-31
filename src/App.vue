@@ -41,7 +41,7 @@
 <template>
   <Layout>
     <Welcome :handleChangeDisplay="handleChangeDisplay" v-if="selectedDisplay == 1" />
-    <Dashboard v-if="selectedDisplay == 2" />
+    <Dashboard :handleSelectWorkout="handleSelectWorkout" v-if="selectedDisplay == 2" />
     <Workout :data="data" :selectedWorkout="selectedWorkout" v-if="workoutProgram?.[selectedWorkout]" />
   </Layout>
 </template>
