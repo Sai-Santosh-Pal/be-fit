@@ -4,14 +4,45 @@
   import Dashboard from './components/pages/Dashboard.vue'
   import Workout from './components/pages/Workout.vue'
 
-const selectDisplay = 3
+  import { ref } from 'vue'
+  import { workoutProgram } from './utils'
+
+  const defaultData = {}
+  for (let workoutIdx in workoutProgram) {
+    const workoutData = workoutProgram[workoutIdx]
+    defaultData[workoutIdx] = {}
+    for (let e of workoutData.workout) {
+      defaultData[workoutIdx][e.name] = ''
+    }
+  }
+
+
+  const selectedDisplay = ref(1)
+  const data = ref(defaultData)
+  const selectedWorkout = ref(-1)
+
+  function handleChangeDisplay(idx) {
+    selectedDisplay.value = idx
+  }
+
+  function handleSelectWorkout(idx) {
+    selectedDisplay.value = 3
+    selectedWorkout.value = idx
+  }
+
+  function handleSaveWorkout() {
+    localStorage.setItem('workouts', JSON.stringify(data.value))
+    selectedDisplay.value = 2
+    selectedWorkout.value = -1
+  }
+
 </script>
 
 <template>
   <Layout>
-    <Welcome v-if="selectDisplay == 1" />
-    <Dashboard v-if="selectDisplay == 2" />
-    <Workout v-if="selectDisplay == 3" />
+    <Welcome :handleChangeDisplay="handleChangeDisplay" v-if="selectedDisplay == 1" />
+    <Dashboard v-if="selectedDisplay == 2" />
+    <Workout :data="data" :selectedWorkout="selectedWorkout" v-if="workoutProgram?.[selectedWorkout]" />
   </Layout>
 </template>
 
