@@ -4,7 +4,7 @@
   import Dashboard from './components/pages/Dashboard.vue'
   import Workout from './components/pages/Workout.vue'
 
-  import { ref, computed } from 'vue'
+  import { ref, computed, onMounted } from 'vue'
   import { workoutProgram } from './utils'
 
   const defaultData = {}
@@ -56,12 +56,27 @@
     selectedWorkout.value = -1
   }
 
+  function handleResetPlan() {
+    selectedDisplay.value = 2
+    selectedWorkout.value = -1
+    data.value = defaultData
+    localStorage.removeItem('workouts')
+  }
+
+  onMounted(() => {
+    if (!localStorage) {return}
+    if (localStorage.getItem('workouts')) {
+      const savedData = JSON.parse(localStorage.getItem('workouts'))
+      data.value = savedData
+    }
+  })
+
 </script>
 
 <template>
   <Layout>
     <Welcome :handleChangeDisplay="handleChangeDisplay" v-if="selectedDisplay == 1" />
-    <Dashboard :firstIncompleteWorkoutIndex="firstIncompleteWorkoutIndex" :handleSelectWorkout="handleSelectWorkout" v-if="selectedDisplay == 2" />
+    <Dashboard :handleResetPlan="handleResetPlan" :firstIncompleteWorkoutIndex="firstIncompleteWorkoutIndex" :handleSelectWorkout="handleSelectWorkout" v-if="selectedDisplay == 2" />
     <Workout :handleSaveWorkout="handleSaveWorkout" :isWorkoutComplete="isWorkoutComplete" :data="data" :selectedWorkout="selectedWorkout" v-if="workoutProgram?.[selectedWorkout]" />
   </Layout>
 </template>

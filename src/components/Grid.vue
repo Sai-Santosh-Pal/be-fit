@@ -3,7 +3,8 @@
 
     defineProps({
         handleSelectWorkout: Function,
-        firstIncompleteWorkoutIndex: Number
+        firstIncompleteWorkoutIndex: Number,
+        handleResetPlan: Function
     })
 
     const workoutTypes = ['Push', 'Pull', 'Legs']
@@ -22,7 +23,7 @@
                 </div>
                 <h3>{{ workoutTypes[workoutIdx % 3] }}</h3>
             </button>
-            <button class="card-button plan-card-reset">
+            <button :disabled="firstIncompleteWorkoutIndex != -1" @click="handleResetPlan" class="card-button plan-card-reset">
                 <p>Reset</p>
                 <i class="fa-solid fa-rotate-left"></i>
             </button>
